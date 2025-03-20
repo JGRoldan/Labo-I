@@ -25,6 +25,22 @@ Este repositorio es un mono repo que contiene dos carpetas principales:
     cd TP-inicial
     ```
 
+## GIT
+#### Traer ramas remotas a local
+1. Validar las ramas remotas
+   ```bash
+   git branch -r
+   ```
+2. Traemos las ramas remotas a local
+   ```bash
+   git checkout -b develop origin/develop
+   git checkout -b feature origin/feature
+   ```
+3. Validamos que esten todas las ramas en local
+   ```bash 
+   git branch
+   ```
+   
 ## Contribuciones
 Si deseas contribuir a este proyecto, por favor segui los siguientes pasos:
 
