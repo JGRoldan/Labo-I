@@ -38,3 +38,17 @@
     ```python
     python main.py # output 1.5.2
     ```
+
+## Resultados del modelo
+- Intercepto (b0): 51.2092 (Valor real: 50)
+- Coeficiente para 'horas_capacitación' (b1): 0.4945 (Valor real: 0.5) 
+- Coeficiente para 'antiguedad' (b2): 0.8267 (Valor real: 0.8)
+- Coeficiente para 'calificación_previa' (b3): 0.3849 (Valor real: 0.4)
+
+Métricas de evaluación:
+- MSE: 27.0158
+- R²: 0.9005 (1.0 es perfecto)
+
+## Resultados de una predicción
+- Puntaje predicho para el nuevo empleado: 54.62
+- Puntaje real para el nuevo empleado: 53.4
