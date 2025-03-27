@@ -49,6 +49,14 @@ Métricas de evaluación:
 - MSE: 27.0158
 - R²: 0.9005 (1.0 es perfecto)
 
-## Resultados de una predicción
+### Resultados de una predicción de un empleado
 - Puntaje predicho para el nuevo empleado: 54.62
 - Puntaje real para el nuevo empleado: 53.4
+
+### Resultados de una prección desde un csv con N empleados
+| id | horas_capacitación | antiguedad | calificación_previa | puntaje_desempeño_predicho |
+|----|-------------------|------------|---------------------|----------------------------|
+| 0  | 2                 | 2          | 2                   | 54.621491                  |
+| 1  | 1                 | 10         | 8                   | 63.049927                  |
+| 2  | 6                 | 5          | 20                  | 66.008434                  |
+| 3  | 15                | 4          | 5                   | 63.858455                  |

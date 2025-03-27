@@ -48,3 +48,23 @@ nuevo_empleado = pd.DataFrame({
 # Predecir su puntaje de desempeño
 puntaje_predicho = model.predict(nuevo_empleado)
 print(f"Puntaje predicho para el nuevo empleado: {puntaje_predicho[0]:.2f}")
+
+#######################################
+#####PREDICCION EMPLEADOS DESDE CSV####
+#######################################
+
+# Cargar nuevos datos
+nuevos_empleados = pd.read_csv("dataset_nuevos_empleados.csv")
+X_nuevos = nuevos_empleados[["horas_capacitación", "antiguedad", "calificación_previa"]]
+
+# Predecir y añadir columna al DataFrame
+nuevos_empleados["puntaje_desempeño_predicho"] = model.predict(X_nuevos)
+
+# Guardar resultados en nuevo archivo
+# nuevos_empleados.to_csv("resultados_predicciones.csv", index=False)  <---- Descomentar para guardar
+
+# Seleccionar columnas importantes para mostrar
+resultados = nuevos_empleados[["id", "horas_capacitación", "antiguedad", "calificación_previa", "puntaje_desempeño_predicho"]]
+
+print("\nRESULTADOS DE PREDICCIÓN:")
+print(resultados.to_string(index=False))
