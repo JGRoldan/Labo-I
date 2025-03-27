@@ -33,3 +33,18 @@ print(f"- Coeficiente para 'calificación_previa' (b3): {model.coef_[2]:.4f} (Va
 print(f"\nMétricas de evaluación:")
 print(f"- MSE: {mse:.4f}")
 print(f"- R²: {r2:.4f} (1.0 es perfecto)")
+
+
+############################
+#####PREDICCION EMPLEADO####
+############################
+
+nuevo_empleado = pd.DataFrame({
+    "horas_capacitación": [2],
+    "antiguedad": [2],
+    "calificación_previa": [2]
+})
+
+# Predecir su puntaje de desempeño
+puntaje_predicho = model.predict(nuevo_empleado)
+print(f"Puntaje predicho para el nuevo empleado: {puntaje_predicho[0]:.2f}")
