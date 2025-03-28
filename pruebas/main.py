@@ -2,6 +2,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # 1. Cargar el dataset generado
 df = pd.read_csv("dataset_ficticio_regresion_lineal.csv")
@@ -33,6 +35,18 @@ print(f"- Coeficiente para 'calificación_previa' (b3): {model.coef_[2]:.4f} (Va
 print(f"\nMétricas de evaluación:")
 print(f"- MSE: {mse:.4f}")
 print(f"- R²: {r2:.4f} (1.0 es perfecto)")
+
+#############################
+####GRAFICO DE DISPERSIÓN####
+#############################
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x=y_test, y=y_pred, color='blue', alpha=0.5)
+sns.regplot(x=y_test, y=y_pred, scatter=False, color='red')
+
+plt.xlabel("Valores reales")
+plt.ylabel("Valores de predicción")
+plt.title("Valores reales vs Valores de predicción")
+plt.show()
 
 
 ############################
