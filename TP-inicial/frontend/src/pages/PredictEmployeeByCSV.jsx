@@ -20,6 +20,13 @@ function PredictEmployeeByCSV() {
         formData.append("file", selectedFile)
 
         // Logica para llamar al backend
+        const response = await fetch("http://localhost:8000/predecir-csv", {
+            method: "POST",
+            body: formData,
+        })
+
+        const data = await response.json()
+        setPredictions(data.predicciones)
 
         // Limpiar input de archivo después de procesarlo
         setSelectedFile(null)
@@ -54,7 +61,7 @@ function PredictEmployeeByCSV() {
                     <table className="w-full text-sm text-left text-gray-700 border-collapse border border-gray-300">
                         <thead className="bg-gray-200">
                             <tr>
-                                <th className="px-4 py-2 border border-gray-300">Id</th>
+                                <th className="px-4 py-2 border border-gray-300">Empleado</th>
                                 <th className="px-4 py-2 border border-gray-300">Horas Capacitación</th>
                                 <th className="px-4 py-2 border border-gray-300">Antigüedad</th>
                                 <th className="px-4 py-2 border border-gray-300">Calificación Previa</th>
@@ -62,13 +69,13 @@ function PredictEmployeeByCSV() {
                             </tr>
                         </thead>
                         <tbody>
-                            {predictions.map((row, i) => (
+                            {predictions.map(({ id, horas_capacitación, antiguedad, calificación_previa, prediccion }, i) => (
                                 <tr key={i} className="bg-white border border-gray-300">
-                                    <td className="px-4 py-2 border">{row.empleado}</td>
-                                    <td className="px-4 py-2 border">{row.horas_capacitacion}</td>
-                                    <td className="px-4 py-2 border">{row.antiguedad}</td>
-                                    <td className="px-4 py-2 border">{row.calificacion_prev}</td>
-                                    <td className="px-4 py-2 border">{row.prediccion.toFixed(2)}</td>
+                                    <td className="px-4 py-2 border">{id}</td>
+                                    <td className="px-4 py-2 border">{horas_capacitación}</td>
+                                    <td className="px-4 py-2 border">{antiguedad}</td>
+                                    <td className="px-4 py-2 border">{calificación_previa}</td>
+                                    <td className="px-4 py-2 border">{prediccion.toFixed(2)}</td>
                                 </tr>
                             ))}
                         </tbody>
