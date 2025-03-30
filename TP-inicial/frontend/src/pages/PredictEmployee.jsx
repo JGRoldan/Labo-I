@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 function PredictEmployee() {
     const [formData, setFormData] = useState({
@@ -6,13 +7,26 @@ function PredictEmployee() {
         antiguedad: '',
         calificacion_prev: ''
     })
-    const [result, setResult] = useState(null)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        //Lógica para llamar al backend
 
-        alert(JSON.stringify(formData))
+        const response = await fetch('http://localhost:8000/predecir', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+
+        const data = await response.json()
+
+        // Alerta de éxito
+        Swal.fire({
+            title: 'Predicción realizada',
+            text: `Puntaje predicho: ${data.prediccion}`,
+            icon: "success"
+        })
 
         setFormData({
             horas_capacitacion: '',
@@ -39,7 +53,6 @@ function PredictEmployee() {
                 </div>
                 <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Predecir</button>
             </form>
-            {result && <p>Puntaje predicho: {result}</p>}
         </section>
     )
 }
