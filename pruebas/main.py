@@ -4,6 +4,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 import seaborn as sns
 import matplotlib.pyplot as plt
+from joblib import dump
 
 # 1. Cargar el dataset generado
 df = pd.read_csv("dataset_ficticio_regresion_lineal.csv")
@@ -35,6 +36,11 @@ print(f"- Coeficiente para 'calificación_previa' (b3): {model.coef_[2]:.4f} (Va
 print(f"\nMétricas de evaluación:")
 print(f"- MSE: {mse:.4f}")
 print(f"- R²: {r2:.4f} (1.0 es perfecto)")
+
+#################################
+####EXPORTAR MODELO PARA USAR####
+#################################
+dump(model, 'modelo_regresion_lineal.joblib')
 
 #############################
 ####GRAFICO DE DISPERSIÓN####
