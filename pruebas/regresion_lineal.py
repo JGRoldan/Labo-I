@@ -84,7 +84,7 @@ for i in range(employees):
     x3 = np.random.randint(0, 11)   # Enteros entre 0 y 10 (inclusive)
     
     # Calcular y usando la fórmula de regresión lineal
-    y = b0 + b1 * x1 + b2 * x2 + b3 * x3 + np.random.normal(0, 5)  # Agregar ruido normal
+    y = b0 + b1 * x1 + b2 * x2 + b3 * x3 + np.random.normal(0, 1)  # Agregar ruido normal
     
     # Guardar los valores en el array bidimensional
     dataset[i] = [i, x1, x2, x3, y]

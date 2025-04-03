@@ -60,3 +60,29 @@ Métricas de evaluación:
 | 1  | 1                 | 10         | 8                   | 63.049927                  |
 | 2  | 6                 | 5          | 20                  | 66.008434                  |
 | 3  | 15                | 4          | 5                   | 63.858455                  |
+
+
+## Mejoras en el modelo
+
+1. Reducción del ruido (0,5) a (0,1)
+   ```py
+   y = b0 + b1 * x1 + b2 * x2 + b3 * x3 + np.random.normal(0, 1)
+   ```
+
+### Resultados del modelo post mejora
+| Dato | Valor real | Pre mejora | Post Mejora |
+|--|--|--|--|
+| Intercepto | 50 | 51.2092 | 49.7435 |
+| b0 | 0.5 | 0.4945 | 0.4952 |
+| b1 | 0.8 | 0.8267 | 0.8055 |
+| b2 | 0.4 | 0.3849 | 0.4559 |
+| MSE | 0 | 27.0158 | <span style="color:green">0.8909</span> |
+| R2 | 1 | 0.9005 | <span style="color:green">0.9948 </span> |
+
+
+| id | horas_capacitación | antiguedad | calificación_previa | puntaje_desempeño_predicho |
+|----|-------------------|------------|---------------------|----------------------------|
+| 0  | 2                 | 2          | 2                   | 53.256654                  |
+| 1  | 1                 | 10         | 8                   | 61.940921                  |
+| 2  | 6                 | 5          | 20                  | 65.859838                  |
+| 3  | 15                | 4          | 5                   | 62.672798                  |
