@@ -2,7 +2,7 @@
 
 Este repositorio es un mono repo que contiene dos carpetas principales:
 
-1. **Pruebas**: Carpeta destinada a pruebas y experimentación.
+1. **modelo**: Carpeta destinada a generar el dataset ficicio, entrenar y exportar el modelo entrenado.
 2. **TP-inicial**: Carpeta que contiene el trabajo práctico inicial del proyecto.
 
 ## Cómo Usar
@@ -13,10 +13,10 @@ Este repositorio es un mono repo que contiene dos carpetas principales:
    ```
 2. Navegar a la carpeta correspondiente según lo que necesites:
 
-   -   Para acceder a las pruebas:
+   -   Para acceder al modelo:
 
     ```bash
-    cd Pruebas
+    cd modelo
     ```
 
    -   Para acceder al trabajo práctico inicial:

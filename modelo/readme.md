@@ -36,7 +36,7 @@
 
 5. Ejecutar el código
     ```python
-    python main.py # output 1.5.2
+    python main.py # Entrenamiento y Genera modelo
     ```
 
 ## Resultados del modelo
