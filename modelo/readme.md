@@ -24,9 +24,9 @@
    ```bash
    source sklearn-env/bin/activate
    ```
-3. Instalar scikit-learn
+3. Instalar librerias
    ```bash
-   pip install scikit-learn==1.5.2
+   pip install numpy pandas seaborn matplotlib joblib scikit-learn==1.5.2 
    ```
 
 4. Seleccionar el interprete de python.
