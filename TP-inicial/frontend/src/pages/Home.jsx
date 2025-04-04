@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 
+// Este componente representa la página de inicio de la aplicación
 function Home() {
     return (
         <div className="max-w-4xl mx-auto px-4 py-12">

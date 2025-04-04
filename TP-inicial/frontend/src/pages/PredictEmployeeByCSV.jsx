@@ -1,10 +1,13 @@
 import { useState, useRef } from 'react'
 
+// Este componente permite al usuario subir un archivo CSV y predecir el rendimiento de los empleados
+// mediante una llamada a la API del backend. Muestra los resultados en una tabla.
 function PredictEmployeeByCSV() {
     const [predictions, setPredictions] = useState([]) // Estado para almacenar las predicciones
     const [selectedFile, setSelectedFile] = useState(null)
     const fileInputRef = useRef(null) // Ref para el input de archivo
 
+    // Al seleccionar un archivo, se actualiza el estado con el archivo seleccionado
     const handleFileChange = async (e) => {
         setSelectedFile(e.target.files[0])
     }
@@ -16,6 +19,8 @@ function PredictEmployeeByCSV() {
             return
         }
 
+        // Crear un objeto FormData para enviar el archivo al backend
+        // El FormData es un objeto que permite construir un conjunto de pares clave/valor
         const formData = new FormData()
         formData.append("file", selectedFile)
 

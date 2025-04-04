@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 
+// Este componente se encarga de predecir el puntaje de un candidato a empleado
+// a partir de los datos ingresados por el usuario en un formulario. 
+// Al enviar el formulario, se realiza una petición POST a la API
+
 function PredictEmployee() {
     const [formData, setFormData] = useState({
         horas_capacitacion: '',
@@ -11,6 +15,7 @@ function PredictEmployee() {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        // Llamar a la API para predecir el puntaje
         const response = await fetch('http://localhost:8000/predecir', {
             method: 'POST',
             headers: {
@@ -19,6 +24,7 @@ function PredictEmployee() {
             body: JSON.stringify(formData)
         })
 
+        // Convertir la respuesta a JSON 
         const data = await response.json()
 
         // Alerta de éxito
@@ -28,6 +34,7 @@ function PredictEmployee() {
             icon: "success"
         })
 
+        // Setear los datos del formulario a valores por defecto
         setFormData({
             horas_capacitacion: '',
             antiguedad: '',

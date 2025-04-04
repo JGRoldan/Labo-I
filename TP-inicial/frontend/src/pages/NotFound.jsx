@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 
+// Este componente se encarga de mostrar la página de error 404 cuando no se encuentra la ruta solicitada
+// Se utiliza para redirigir al usuario a la página de inicio o a otra ruta válida
 function NotFound() {
     return (
         <section className="bg-white flex justify-center items-center h-screen">
