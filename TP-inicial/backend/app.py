@@ -16,7 +16,7 @@ app.add_middleware(
 # Cargar modelo
 model = load("modelo_regresion_lineal.joblib")
 
-# Endpoint 1: Predicción individual
+# Endpoint 1: Predicción individual de datos
 @app.post("/predecir")
 async def predecir(data: dict):
     try:
