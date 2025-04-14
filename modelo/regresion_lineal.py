@@ -64,28 +64,33 @@ En caso de que sea asi, a continuación se crea el modelo con los datos ficticio
 import numpy as np
 import pandas as pd
 
-# Definir los coeficientes de la regresión lineal
-b0 = 50  # Intercepto
-b1 = .5  # Coeficiente para x1
-b2 = .8 # Coeficiente para x2
-b3 = .4  # Coeficiente para x3
+# Coeficientes de la regresion lineal
+b0 = 10        # Intercepto          | 10% del puntaje total
+b1 = 0.1       # Coeficiente para x1 | 5% - horas de capacitación (0-50)
+b2 = 0.25      # Coeficiente para x2 | 5% - antigüedad (0-20)
+b3 = 8.0       # Coeficiente para x3 | 80% - calificación previa (1-10)
 
-# Definir la cantidad de empleados para el dataset
-employees = 100
+# Número de empleados para el dataset ficticio 
+employees = 100000
 
-# Crear un array bidimensional de 100 filas y 5 columnas (id,x1, x2, x3, PD)
+# Inicializar dataset
 dataset = np.zeros((employees, 5))
 
-# Generar valores enteros para x1, x2, x3 y calcular PD
+# Generar datos
 for i in range(employees):
-    # Generar valores enteros para x1, x2, x3
-    x1 = np.random.randint(0, 101)  # Enteros entre 0 y 100 (inclusive)
-    x2 = np.random.randint(0, 21)   # Enteros entre 0 y 20 (inclusive)
-    x3 = np.random.randint(0, 11)   # Enteros entre 0 y 10 (inclusive)
-    
+    x1 = np.random.randint(0, 51)   # Horas capacitación    Enteros entre 0 y 50 (inclusive)
+    x2 = np.random.randint(0, 21)   # Antigüedad            Enteros entre 0 y 20 (inclusive)
+    x3 = np.random.randint(0, 11)   # Calificación previa   Enteros entre 0 y 10 (inclusive)
+
+    # Ruido normal pequeño, con desviación estándar baja
+    ruido = np.random.normal(0, 1.5)
+
     # Calcular y usando la fórmula de regresión lineal
-    y = b0 + b1 * x1 + b2 * x2 + b3 * x3 + np.random.normal(0, 1)  # Agregar ruido normal
-    
+    y = b0 + b1 * x1 + b2 * x2 + b3 * x3 + ruido
+
+    # Limite de puntaje desempeño[10, 100]
+    y = max(10, min(100, y))
+
     # Guardar los valores en el array bidimensional
     dataset[i] = [i, x1, x2, x3, y]
 
